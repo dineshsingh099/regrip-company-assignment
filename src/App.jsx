@@ -1,14 +1,19 @@
-import { Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BoardProvider } from "./context/BoardContext";
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </>
-  )
+	return (
+		<BoardProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/dashboard" element={<Dashboard />} />
+				</Routes>
+			</BrowserRouter>
+		</BoardProvider>
+	);
 }
 
-export default App
+export default App;
